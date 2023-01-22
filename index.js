@@ -24,16 +24,14 @@ app.use('/answer', answerRoutes)
 const PORT = process.env.PORT || 5000
 
 const DATABASE_URL = process.env.CONNECTION_URL
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log("Server running...");
   });
   
-  /* ----------------------------MONGODB SETUP------------------- */
-  import mongoose from "mongoose";
   mongoose.set("strictQuery", true);
   
   mongoose
-    .connect(process.env.DATABASE_URL, {
+    .connect(DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
